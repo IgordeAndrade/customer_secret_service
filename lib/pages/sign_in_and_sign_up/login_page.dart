@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/components/login/custom_login_buttom.dart';
 import 'package:customer_secret_service/pages/sign_in_and_sign_up/custom_backgroud.dart';
 import 'package:customer_secret_service/pages/sign_in_and_sign_up/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -45,16 +46,7 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
-                  SizedBox(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/home_page');
-                      },
-                      child: const Text('Login'),
-                    ),
-                  ),
+                  const CustomLoginButton(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
