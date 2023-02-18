@@ -1,6 +1,6 @@
-import 'package:customer_secret_service/components/login/custom_login_buttom.dart';
-import 'package:customer_secret_service/pages/sign_in_and_sign_up/custom_backgroud.dart';
-import 'package:customer_secret_service/pages/sign_in_and_sign_up/custom_text_form_field.dart';
+import 'package:customer_secret_service/login/components/login/custom_login_buttom.dart';
+import 'package:customer_secret_service/login/presentation/widgets/custom_backgroud.dart';
+import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {

@@ -1,10 +1,10 @@
-import 'package:customer_secret_service/design_system/themes/themes.dart';
-import 'package:customer_secret_service/pages/sign_in_and_sign_up/login_page.dart';
-import 'package:customer_secret_service/pages/sign_in_and_sign_up/register_page.dart';
-import 'package:customer_secret_service/pages/splash_page.dart';
+import 'package:customer_secret_service/global/design_system/themes/themes.dart';
+import 'package:customer_secret_service/login/presentation/login_page.dart';
+import 'package:customer_secret_service/global/presentation/splash_page.dart';
+import 'package:customer_secret_service/sign_out_customer_secret.dart/presentation/presentation/register_page.dart';
 import 'package:flutter/material.dart';
 
-import 'pages/home_page/home_page.dart';
+import 'home_page/home_page.dart';
 
 class CustommerApp extends StatelessWidget {
   const CustommerApp({super.key});

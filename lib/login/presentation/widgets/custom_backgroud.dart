@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../design_system/themes/color_schemes.g.dart';
+import '../../../global/design_system/themes/color_schemes.g.dart';
 
 class CustomBackground extends StatelessWidget {
   const CustomBackground({super.key, required this.widget});

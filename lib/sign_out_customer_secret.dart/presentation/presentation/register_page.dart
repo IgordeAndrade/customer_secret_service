@@ -1,5 +1,5 @@
-import 'package:customer_secret_service/pages/sign_in_and_sign_up/custom_backgroud.dart';
-import 'package:customer_secret_service/pages/sign_in_and_sign_up/custom_text_form_field.dart';
+import 'package:customer_secret_service/login/presentation/widgets/custom_backgroud.dart';
+import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -59,7 +59,7 @@ class RegisterPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text('REGISTRAR'),
+                      child: const Text('REGISTRAR'),
                     ),
                   )
                 ],
