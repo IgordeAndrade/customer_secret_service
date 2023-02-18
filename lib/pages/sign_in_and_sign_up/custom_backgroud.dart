@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../design_system/themes/color_schemes.g.dart';
+
 class CustomBackground extends StatelessWidget {
   const CustomBackground({super.key, required this.widget});
 
@@ -8,12 +10,12 @@ class CustomBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.deepPurple,
+            darkColorScheme.onPrimary,
             Colors.black,
           ],
         ),
