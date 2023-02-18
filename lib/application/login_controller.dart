@@ -5,7 +5,7 @@ class LoginController {
 
   ValueNotifier inLoader = ValueNotifier<bool>(false);
 
-  userAuthentication(context) async {
+  Future<void> userAuthentication(context) async {
     inLoader.value = true;
     await Future.delayed(const Duration(seconds: 3));
     inLoader.value = false;

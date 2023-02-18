@@ -1,5 +1,6 @@
-import 'package:customer_secret_service/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
+
+import '../../application/login_controller.dart';
 
 class CustomLoginButton extends StatelessWidget {
   const CustomLoginButton({super.key});
@@ -8,9 +9,9 @@ class CustomLoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
         valueListenable: LoginController.loginController.inLoader,
-        builder: (__, inLoader, ___) {
-          return inLoader
-              ? CircularProgressIndicator()
+        builder: (__, isLoading, ___) {
+          return isLoading
+              ? const CircularProgressIndicator()
               : SizedBox(
                   height: 50,
                   width: MediaQuery.of(context).size.width * 0.5,
