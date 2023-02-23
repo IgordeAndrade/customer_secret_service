@@ -27,7 +27,7 @@ class RegisterPage extends StatelessWidget {
                   Form(
                     child: Column(
                       children: [
-                        const CustomTextFormField(hintText: 'Nome:'),
+                        const CustomTextFormField(hintText: 'Nome completo:'),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.015,
                         ),
