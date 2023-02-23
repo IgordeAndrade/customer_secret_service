@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
             child: SafeArea(
               child: Column(
                 children: [
-                   Text(
+                  Text(
                     Strings.enter,
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onPrimary,
