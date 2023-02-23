@@ -1,3 +1,5 @@
+import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
+import 'package:customer_secret_service/global/routes/routes.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_backgroud.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_login_button.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
@@ -8,6 +10,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
     return Scaffold(
       body: CustomBackground(
         widget: Center(
@@ -16,7 +19,7 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 children: [
                    Text(
-                    'Entre',
+                    Strings.enter,
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onPrimary,
                         fontSize: 48,
@@ -29,14 +32,14 @@ class LoginPage extends StatelessWidget {
                     child: Column(
                       children: [
                         const CustomTextFormField(
-                          hintText: 'E-mail',
+                          hintText: Strings.email,
                           prefixIcon: Icon(Icons.mail),
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02,
                         ),
                         const CustomTextFormField(
-                          hintText: 'Senha',
+                          hintText: Strings.password,
                           obscureText: true,
                           prefixIcon: Icon(Icons.lock),
                         ),
@@ -52,22 +55,22 @@ class LoginPage extends StatelessWidget {
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
-                    child: const Divider(
-                      color: Color.fromARGB(113, 255, 255, 255),
+                    child: Divider(
+                      color: theme.outline,
                     ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        'Ainda não tem uma conta?',
-                        style: TextStyle(color: Colors.white60),
+                      Text(
+                        Strings.noCount,
+                        style: TextStyle(color: theme.background),
                       ),
                       TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/register_page');
+                            Navigator.pushNamed(context, Routes.registerPage);
                           },
-                          child: const Text('Cadastre-se.'))
+                          child: const Text(Strings.createCount))
                     ],
                   )
                 ],

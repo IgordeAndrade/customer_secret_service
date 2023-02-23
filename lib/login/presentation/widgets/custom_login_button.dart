@@ -1,5 +1,7 @@
+import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:flutter/material.dart';
 
+import '../../../global/design_system/themes/constants/sizes.dart';
 import '../../application/login_controller.dart';
 
 class CustomLoginButton extends StatelessWidget {
@@ -13,14 +15,14 @@ class CustomLoginButton extends StatelessWidget {
           return isLoading
               ? const CircularProgressIndicator()
               : SizedBox(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width * 0.5,
+                  height: Sizes.loginButtonHeight,
+                  width: MediaQuery.of(context).size.width * Sizes.buttonWidthMultiplier,
                   child: ElevatedButton(
                     onPressed: () {
                       LoginController.loginController
                           .userAuthentication(context);
                     },
-                    child: const Text('Login'),
+                    child: const Text(Strings.login),
                   ),
                 );
         });
