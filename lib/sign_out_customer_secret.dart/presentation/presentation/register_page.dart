@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_backgroud.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
     return Scaffold(
       body: CustomBackground(
         widget: Center(
@@ -14,10 +16,10 @@ class RegisterPage extends StatelessWidget {
             child: SafeArea(
               child: Column(
                 children: [
-                  const Text(
-                    'Cadastre-se',
+                   Text(
+                    Strings.createCount,
                     style: TextStyle(
-                        color: Colors.white,
+                        color: theme.onPrimary,
                         fontSize: 48,
                         fontWeight: FontWeight.w400),
                   ),
@@ -27,23 +29,23 @@ class RegisterPage extends StatelessWidget {
                   Form(
                     child: Column(
                       children: [
-                        const CustomTextFormField(hintText: 'Nome:'),
+                        const CustomTextFormField(hintText: Strings.name),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.015,
                         ),
-                        const CustomTextFormField(hintText: 'E-mail:'),
+                        const CustomTextFormField(hintText: Strings.email),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.015,
                         ),
                         const CustomTextFormField(
-                          hintText: 'senha:',
+                          hintText: Strings.password,
                           obscureText: true,
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.015,
                         ),
                         const CustomTextFormField(
-                          hintText: 'confirme a senha:',
+                          hintText: Strings.confirmPassword,
                           obscureText: true,
                         ),
                       ],
@@ -59,7 +61,7 @@ class RegisterPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: const Text('REGISTRAR'),
+                      child: const Text(Strings.register),
                     ),
                   )
                 ],

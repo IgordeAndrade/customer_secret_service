@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/global/design_system/themes/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -14,14 +15,14 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.9,
+      width: MediaQuery.of(context).size.width * Sizes.inputTextWidthMultiplier,
       child: TextFormField(
         decoration: InputDecoration(
           prefixIcon: prefixIcon,
           hintText: hintText,
           filled: true,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(Sizes.borderRadius),
           ),
         ),
         obscureText: obscureText,

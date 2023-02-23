@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Customer Secret'),
+        title: const Text(Strings.appName),
       ),
     );
   }

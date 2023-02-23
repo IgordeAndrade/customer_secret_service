@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/global/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class LoginController {
@@ -9,6 +10,6 @@ class LoginController {
     inLoader.value = true;
     await Future.delayed(const Duration(seconds: 3));
     inLoader.value = false;
-    Navigator.pushReplacementNamed(context, '/home_page');
+    Navigator.pushReplacementNamed(context, Routes.homePage);
   }
 }

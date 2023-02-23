@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../design_system/themes/constants/sizes.dart';
+
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
 
@@ -23,13 +25,13 @@ class _SplashPageState extends State<SplashPage> {
         alignment: Alignment.center,
         children: const [
           SizedBox(
-            height: 250,
-            width: 250,
+            height: Sizes.splashProgressSize,
+            width:  Sizes.splashProgressSize,
             child: CircularProgressIndicator(),
           ),
           Icon(
             Icons.search,
-            size: 150,
+            size: Sizes.iconSizeXLarge,
           ),
         ],
       )),
