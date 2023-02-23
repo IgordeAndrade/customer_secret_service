@@ -1,5 +1,5 @@
-import 'package:customer_secret_service/login/components/login/custom_login_buttom.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_backgroud.dart';
+import 'package:customer_secret_service/login/presentation/widgets/custom_login_button.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
@@ -15,10 +15,10 @@ class LoginPage extends StatelessWidget {
             child: SafeArea(
               child: Column(
                 children: [
-                  const Text(
+                   Text(
                     'Entre',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onPrimary,
                         fontSize: 48,
                         fontWeight: FontWeight.w400),
                   ),
