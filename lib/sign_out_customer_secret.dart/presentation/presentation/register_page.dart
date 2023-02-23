@@ -16,7 +16,7 @@ class RegisterPage extends StatelessWidget {
             child: SafeArea(
               child: Column(
                 children: [
-                   Text(
+                  Text(
                     Strings.createCount,
                     style: TextStyle(
                         color: theme.onPrimary,
