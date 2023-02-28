@@ -11,6 +11,6 @@ class Sizes {
 
   //INPUT TEXT
   static const double inputTextWidthMultiplier = 0.9;
-  static const double borderRadius = 25;
+  static const double borderRadius = 12.5;
 
 }

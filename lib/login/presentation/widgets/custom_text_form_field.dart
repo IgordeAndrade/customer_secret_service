@@ -14,16 +14,25 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * Sizes.inputTextWidthMultiplier,
+    final theme = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: Sizes.borderRadius * 2),
       child: TextFormField(
+        style: TextStyle(color: theme.onPrimary),
         decoration: InputDecoration(
-          prefixIcon: prefixIcon,
+          prefixIcon: Padding(
+            padding: const EdgeInsets.only(
+                left: Sizes.borderRadius * 1.5, right: Sizes.borderRadius),
+            child: prefixIcon,
+          ),
           hintText: hintText,
           filled: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.borderRadius),
-          ),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(Sizes.borderRadius),
+              borderSide: BorderSide(color: theme.outline)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(Sizes.borderRadius),
+              borderSide: BorderSide(color: theme.primary)),
         ),
         obscureText: obscureText,
       ),

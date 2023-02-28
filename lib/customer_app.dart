@@ -16,8 +16,7 @@ class CustommerApp extends StatelessWidget {
     return MaterialApp(
         title: Strings.appName,
         debugShowCheckedModeBanner: false,
-        theme: lightTheme,
-        darkTheme: darkTheme,
+        theme: darkTheme,
         initialRoute: Routes.splashPage,
         routes: {
           Routes.splashPage: (_) => const SplashPage(),

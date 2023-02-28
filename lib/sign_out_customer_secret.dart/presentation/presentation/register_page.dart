@@ -1,5 +1,4 @@
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
-import 'package:customer_secret_service/login/presentation/widgets/custom_backgroud.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +9,7 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
     return Scaffold(
-      body: CustomBackground(
-        widget: Center(
+      body:  Center(
           child: SingleChildScrollView(
             child: SafeArea(
               child: Column(
@@ -69,7 +67,6 @@ class RegisterPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }
