@@ -26,20 +26,22 @@ class LoginPage extends StatelessWidget {
                 Form(
                   child: Column(
                     children: [
-                      const CustomTextFormField(
+                      CustomTextFormField(
                         hintText: Strings.email,
                         prefixIcon: Icon(
                           Icons.mail,
+                          color: theme.onPrimary,
                         ),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.02,
                       ),
-                      const CustomTextFormField(
+                      CustomTextFormField(
                         hintText: Strings.password,
                         obscureText: true,
                         prefixIcon: Icon(
                           Icons.lock,
+                          color: theme.onPrimary,
                         ),
                       ),
                     ],
