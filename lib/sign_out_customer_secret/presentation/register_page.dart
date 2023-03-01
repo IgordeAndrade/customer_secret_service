@@ -3,6 +3,9 @@ import 'package:customer_secret_service/login/presentation/widgets/custom_text_f
 import 'package:flutter/material.dart';
 
 import '../../global/design_system/themes/constants/sizes.dart';
+import '../../global/design_system/widgets/customer_snack_bar.dart';
+import '../../global/routes/routes.dart';
+import '../application/register_controller.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -11,6 +14,14 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Navigator.pushReplacementNamed(
+                  context,
+                  Routes.loginPage,
+                ),
+            icon: const Icon(Icons.arrow_back)),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: SafeArea(
@@ -24,7 +35,7 @@ class RegisterPage extends StatelessWidget {
                       fontWeight: FontWeight.w400),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.2,
+                  height: MediaQuery.of(context).size.height * 0.1,
                 ),
                 Form(
                   child: Column(
@@ -32,6 +43,7 @@ class RegisterPage extends StatelessWidget {
                       const CustomTextFormField(
                         hintText: Strings.name,
                       ),
+                      //TODO: Remove all SizedBox in this file
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.015,
                       ),
@@ -79,23 +91,38 @@ class RegisterPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.08,
-                ),
-                SizedBox(
-                  height: 45,
-                  width: MediaQuery.of(context).size.width * 0.45,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      shadowColor: MaterialStateProperty.all(
-                          Theme.of(context).colorScheme.onPrimary),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: MediaQuery.of(context).size.height * 0.05),
+                  child: SizedBox(
+                    height: 45,
+                    width: MediaQuery.of(context).size.width * 0.45,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        shadowColor: MaterialStateProperty.all(
+                            Theme.of(context).colorScheme.onPrimary),
+                      ),
+                      onPressed: () {
+                        //TODO: Authenticate user
+                        RegisterController().userAuthentication(context);
+
+                        //TODO: Move this logic to controller
+
+                        // status == RxStatus.success ?
+                        showStormSnackBar(
+                          context,
+                          message: 'Cadastro realizado com sucesso!',
+                          action: SnackBarAction(
+                            label: 'Confirme seu e-mail',
+                            onPressed: () {},
+                          ),
+                        );
+                        // : showStormSnackBar(context, message: 'Falha ao se cadastrar');
+                      },
+                      child: const Text(Strings.register),
                     ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text(Strings.register),
                   ),
-                )
+                ),
               ],
             ),
           ),

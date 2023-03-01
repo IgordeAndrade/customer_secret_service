@@ -13,4 +13,7 @@ class Sizes {
   static const double inputTextWidthMultiplier = 0.9;
   static const double borderRadius = 12.5;
   static const double sizedBoxHeigth = 10;
+
+  //BORDER
+  static const double borderPadding = 8.0;
 }
