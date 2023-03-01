@@ -31,7 +31,7 @@ get darkTheme => FlexThemeData.dark(
       swapLegacyOnMaterial3: true,
       colorScheme: flexSchemeDark,
       background: flexSchemeDark.background,
-      scaffoldBackground: Color.fromARGB(206, 14, 14, 19),
+      scaffoldBackground: const Color.fromARGB(206, 14, 14, 19),
       // To use the Playground font, add GoogleFonts package and uncomment
       // fontFamily: GoogleFonts.notoSans().fontFamily,
     );
