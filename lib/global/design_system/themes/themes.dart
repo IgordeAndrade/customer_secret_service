@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 import 'color_schemes.g.dart';
@@ -28,6 +30,8 @@ get darkTheme => FlexThemeData.dark(
       useMaterial3: true,
       swapLegacyOnMaterial3: true,
       colorScheme: flexSchemeDark,
+      background: flexSchemeDark.background,
+      scaffoldBackground: Color.fromARGB(206, 14, 14, 19),
       // To use the Playground font, add GoogleFonts package and uncomment
       // fontFamily: GoogleFonts.notoSans().fontFamily,
     );

@@ -2,6 +2,8 @@ import 'package:customer_secret_service/global/design_system/themes/constants/st
 import 'package:flutter/material.dart';
 
 import '../global/design_system/themes/constants/sizes.dart';
+import '../global/design_system/widgets/box_spacer.dart';
+import '../schedule/presentation/widgets/my_schedules_banner.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -31,7 +33,9 @@ class HomePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
-          children: [
+          children: const [
+            BoxSpacer.small(),
+            MySchedulesBanner(),
           ],
         ),
       ),
