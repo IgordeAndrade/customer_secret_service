@@ -14,15 +14,18 @@ class CustomLoginButton extends StatelessWidget {
         builder: (__, isLoading, ___) {
           return isLoading
               ? const CircularProgressIndicator()
-              : SizedBox(
-                  height: Sizes.loginButtonHeight,
-                  width: MediaQuery.of(context).size.width * Sizes.buttonWidthMultiplier,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      LoginController.loginController
-                          .userAuthentication(context);
-                    },
-                    child: const Text(Strings.login),
+              : ElevatedButton(
+                  style: ButtonStyle(
+                    shadowColor: MaterialStateProperty.all(
+                        Theme.of(context).colorScheme.onPrimary),
+                  ),
+                  onPressed: () {
+                    LoginController.loginController.userAuthentication(context);
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: Sizes.loginButtonHeight),
+                    child: Text(Strings.login),
                   ),
                 );
         });

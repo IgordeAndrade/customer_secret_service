@@ -7,61 +7,54 @@ class CustomTextFormField extends StatelessWidget {
     required this.hintText,
     this.obscureText = false,
     this.prefixIcon,
+    this.textInputType,
+    this.textFieldWidth,
+    this.leftPadding,
+    this.rightPadding,
   });
 
   final String hintText;
-  final bool obscureText;
+  final bool? obscureText;
   final Icon? prefixIcon;
+  final TextInputType? textInputType;
+  final double? textFieldWidth;
+  final double? leftPadding;
+  final double? rightPadding;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * Sizes.inputTextWidthMultiplier,
-      child: TextFormField(
-        decoration: InputDecoration(
-          prefixIcon: prefixIcon,
-          hintText: hintText,
-          filled: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.borderRadius),
-          ),
-        ),
-        obscureText: obscureText,
+    final theme = Theme.of(context).colorScheme;
+    return Padding(
+      padding: EdgeInsets.only(
+        left: leftPadding ?? Sizes.borderRadius * 2,
+        right: rightPadding ?? Sizes.borderRadius * 2,
       ),
-    );
-  }
-}
-
-class CustomTextFormField2 extends StatelessWidget {
-  const CustomTextFormField2(
-      {super.key,
-      required this.hintText,
-      required this.textFieldWidth,
-      this.obscureText = false,
-      this.prefixIcon,
-      this.textInputType = TextInputType.text});
-
-  final String hintText;
-  final bool obscureText;
-  final Icon? prefixIcon;
-  final double textFieldWidth;
-  final TextInputType textInputType;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: textFieldWidth,
-      child: TextFormField(
-        keyboardType: textInputType,
-        decoration: InputDecoration(
-          prefixIcon: prefixIcon,
-          hintText: hintText,
-          filled: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.borderRadius),
+      child: SizedBox(
+        width: textFieldWidth ?? MediaQuery.of(context).size.width,
+        child: TextFormField(
+          keyboardType: textInputType ?? TextInputType.text,
+          style: TextStyle(color: theme.onPrimary),
+          decoration: InputDecoration(
+            prefixIcon: prefixIcon != null
+                ? Padding(
+                    padding: const EdgeInsets.only(
+                        left: Sizes.borderRadius * 1.5,
+                        right: Sizes.borderRadius),
+                    child: prefixIcon,
+                  )
+                : null,
+                prefix: prefixIcon == null ? const SizedBox(width: Sizes.borderRadius,) : null,
+            hintText: hintText,
+            filled: true,
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(Sizes.borderRadius),
+                borderSide: BorderSide(color: theme.outline)),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(Sizes.borderRadius),
+                borderSide: BorderSide(color: theme.primary)),
           ),
+          obscureText: obscureText ?? false,
         ),
-        obscureText: obscureText,
       ),
     );
   }
