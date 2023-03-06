@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import '../themes/constants/spacing.dart';
 
 class BoxSpacer extends SizedBox {
-  const BoxSpacer({super.key})
-      : super.square(dimension: ConstSpacing.medium);
+  const BoxSpacer({super.key}) : super.square(dimension: ConstSpacing.medium);
 
   const BoxSpacer.xxSmall({super.key})
       : super.square(dimension: ConstSpacing.xxSmall);
@@ -17,4 +16,7 @@ class BoxSpacer extends SizedBox {
 
   const BoxSpacer.large({super.key})
       : super.square(dimension: ConstSpacing.large);
+
+  const BoxSpacer.xLarge({super.key})
+      : super.square(dimension: ConstSpacing.xLarge);
 }

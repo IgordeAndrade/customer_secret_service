@@ -1,7 +1,7 @@
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
+import 'package:customer_secret_service/global/design_system/widgets/box_spacer.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
-
 import '../../global/design_system/themes/constants/sizes.dart';
 import '../../global/design_system/widgets/customer_snack_bar.dart';
 import '../../global/routes/routes.dart';
@@ -43,16 +43,11 @@ class RegisterPage extends StatelessWidget {
                       const CustomTextFormField(
                         hintText: Strings.name,
                       ),
-                      //TODO: Remove all SizedBox in this file
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.015,
-                      ),
+                      const BoxSpacer(),
                       const CustomTextFormField(
                         hintText: Strings.email,
                       ),
-                      const SizedBox(
-                        height: Sizes.sizedBoxHeigth,
-                      ),
+                      const BoxSpacer(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -74,16 +69,12 @@ class RegisterPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: Sizes.sizedBoxHeigth,
-                      ),
+                      const BoxSpacer(),
                       const CustomTextFormField(
                         hintText: Strings.password,
                         obscureText: true,
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.015,
-                      ),
+                      const BoxSpacer(),
                       const CustomTextFormField(
                         hintText: Strings.confirmPassword,
                         obscureText: true,
@@ -95,8 +86,8 @@ class RegisterPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                       vertical: MediaQuery.of(context).size.height * 0.05),
                   child: SizedBox(
-                    height: 45,
-                    width: MediaQuery.of(context).size.width * 0.45,
+                    height: Sizes.loginButtonHeight,
+                    width: Sizes.loginButtonWidth,
                     child: ElevatedButton(
                       style: ButtonStyle(
                         shadowColor: MaterialStateProperty.all(

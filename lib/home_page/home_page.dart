@@ -1,4 +1,5 @@
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
+import 'package:customer_secret_service/home_page/widgets/custom_drawer_item.dart';
 import 'package:flutter/material.dart';
 
 import '../global/design_system/themes/constants/sizes.dart';
@@ -27,6 +28,36 @@ class HomePage extends StatelessWidget {
               Image.network(
                 'https://i.ytimg.com/vi/zhBczzBinaw/mqdefault.jpg',
               ),
+              const BoxSpacer.xLarge(),
+              const Text(
+                Strings.personalInformations,
+              ),
+              const BoxSpacer(),
+              CustomDrawerItem(
+                icon: const Icon(Icons.manage_accounts),
+                title: Strings.editPersonalInformations,
+                onPressed: () {},
+              ),
+              CustomDrawerItem(
+                icon: const Icon(Icons.description),
+                title: Strings.contracts,
+                onPressed: () {},
+              ),
+              CustomDrawerItem(
+                icon: const Icon(Icons.manage_search),
+                title: Strings.evaluationHistory,
+                onPressed: () {},
+              ),
+              CustomDrawerItem(
+                icon: const Icon(Icons.payments),
+                title: Strings.paymentHistory,
+                onPressed: () {},
+              ),
+              CustomDrawerItem(
+                icon: const Icon(Icons.south_america),
+                title: Strings.preferredRegions,
+                onPressed: () {},
+              )
             ],
           ),
         ),
