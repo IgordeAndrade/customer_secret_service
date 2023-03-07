@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const ColorScheme flexSchemeDark = ColorScheme(
   brightness: Brightness.dark,
-  primary: Color(0xff4e597d),
+  primary: Color.fromARGB(255, 111, 131, 197),
   onPrimary: Color(0xfff5f5f8),
   primaryContainer: Color(0xff202541),
   onPrimaryContainer: Color(0xffe4e5e9),

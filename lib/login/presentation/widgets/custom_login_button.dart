@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/global/design_system/styles/custom_styles.dart';
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:flutter/material.dart';
 
@@ -15,10 +16,7 @@ class CustomLoginButton extends StatelessWidget {
           return isLoading
               ? const CircularProgressIndicator()
               : ElevatedButton(
-                  style: ButtonStyle(
-                    shadowColor: MaterialStateProperty.all(
-                        Theme.of(context).colorScheme.onPrimary),
-                  ),
+                  style: CustomStyles.buttonStyle,
                   onPressed: () {
                     LoginController.loginController.userAuthentication(context);
                   },
