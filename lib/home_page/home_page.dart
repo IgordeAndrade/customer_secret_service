@@ -24,37 +24,39 @@ class HomePage extends StatelessWidget {
             bottom: Sizes.borderPadding,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.network(
                 'https://i.ytimg.com/vi/zhBczzBinaw/mqdefault.jpg',
               ),
               const BoxSpacer.xLarge(),
-              const Text(
+              Text(
                 Strings.personalInformations,
+                style: Theme.of(context).textTheme.headline6,
               ),
               const BoxSpacer(),
               CustomDrawerItem(
-                icon: const Icon(Icons.manage_accounts),
+                icon: Icons.manage_accounts,
                 title: Strings.editPersonalInformations,
                 onPressed: () {},
               ),
               CustomDrawerItem(
-                icon: const Icon(Icons.description),
+                icon: Icons.description,
                 title: Strings.contracts,
                 onPressed: () {},
               ),
               CustomDrawerItem(
-                icon: const Icon(Icons.manage_search),
+                icon: Icons.manage_search,
                 title: Strings.evaluationHistory,
                 onPressed: () {},
               ),
               CustomDrawerItem(
-                icon: const Icon(Icons.payments),
+                icon: Icons.payments,
                 title: Strings.paymentHistory,
                 onPressed: () {},
               ),
               CustomDrawerItem(
-                icon: const Icon(Icons.south_america),
+                icon: Icons.south_america,
                 title: Strings.preferredRegions,
                 onPressed: () {},
               )

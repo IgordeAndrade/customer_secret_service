@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/global/design_system/styles/custom_styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../../global/design_system/widgets/box_spacer.dart';
@@ -33,10 +34,7 @@ class MySchedulesBanner extends StatelessWidget {
                 children: List.generate(
                   loadedSchedules.length,
                   (index) => ElevatedButton.icon(
-                    style: ButtonStyle(
-                      shadowColor: MaterialStateProperty.all(
-                          theme.colorScheme.onPrimary),
-                    ),
+                    style: CustomStyles.buttonStyle,
                     onPressed: () {},
                     icon: const Icon(Icons.search),
                     label: Text(

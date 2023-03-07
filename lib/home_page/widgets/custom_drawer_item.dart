@@ -1,4 +1,3 @@
-import 'package:customer_secret_service/global/design_system/widgets/box_spacer.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawerItem extends StatelessWidget {
@@ -9,23 +8,19 @@ class CustomDrawerItem extends StatelessWidget {
     required this.onPressed,
   });
 
-  final Icon icon;
+  final IconData icon;
   final String title;
   final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        icon,
-        const BoxSpacer.small(),
-        TextButton(
-          onPressed: onPressed,
-          child: Text(
-            title,
-          ),
-        )
-      ],
+    final theme =  Theme.of(context);
+    return ElevatedButton.icon(
+      onPressed: onPressed,
+      icon: Icon(icon, color: theme.colorScheme.onSurface,),
+      label: Text(
+        title, style: theme.textTheme.button!.copyWith(color: theme.colorScheme.primary),
+      ),
     );
   }
 }
