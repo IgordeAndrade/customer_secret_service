@@ -8,6 +8,7 @@ class Sizes {
   //BUTTONS
   static const double loginButtonHeight = 50;
   static const double buttonWidthMultiplier = 0.5;
+  static const double loginButtonWidth = 150;
 
   //INPUT TEXT
   static const double inputTextWidthMultiplier = 0.9;
