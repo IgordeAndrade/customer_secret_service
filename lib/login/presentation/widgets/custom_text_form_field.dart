@@ -4,16 +4,18 @@ import 'package:flutter/material.dart';
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
-    required this.hintText,
+    this.hintText,
     this.obscureText = false,
     this.prefixIcon,
     this.textInputType,
     this.textFieldWidth,
     this.leftPadding,
     this.rightPadding,
+    this.label,
   });
 
-  final String hintText;
+  final String? hintText;
+  final String? label;
   final bool? obscureText;
   final Icon? prefixIcon;
   final TextInputType? textInputType;
@@ -43,8 +45,13 @@ class CustomTextFormField extends StatelessWidget {
                     child: prefixIcon,
                   )
                 : null,
-                prefix: prefixIcon == null ? const SizedBox(width: Sizes.borderRadius,) : null,
+            prefix: prefixIcon == null
+                ? const SizedBox(
+                    width: Sizes.borderRadius,
+                  )
+                : null,
             hintText: hintText,
+            label: hintText == null ? Text('$label') : null,
             filled: true,
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(Sizes.borderRadius),

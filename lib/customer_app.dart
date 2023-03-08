@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/edit_personal_information/edit_personal_information_page.dart';
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:customer_secret_service/global/design_system/themes/themes.dart';
 import 'package:customer_secret_service/global/routes/routes.dart';
@@ -23,6 +24,8 @@ class CustommerApp extends StatelessWidget {
           Routes.loginPage: (_) => const LoginPage(),
           Routes.homePage: (_) => const HomePage(),
           Routes.registerPage: (_) => const RegisterPage(),
+          Routes.editPersonalInformation: (_) =>
+              const EditPersonalInformationPage()
         });
   }
 }

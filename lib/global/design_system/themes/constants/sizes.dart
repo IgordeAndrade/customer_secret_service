@@ -4,11 +4,13 @@ class Sizes {
 
   //ICONS
   static const double iconSizeXLarge = 150;
+  static const double iconSizeLarge = 100;
 
   //BUTTONS
   static const double loginButtonHeight = 50;
   static const double buttonWidthMultiplier = 0.5;
   static const double loginButtonWidth = 150;
+  static const double editProfilePictureButton = 20;
 
   //INPUT TEXT
   static const double inputTextWidthMultiplier = 0.9;
@@ -17,4 +19,7 @@ class Sizes {
 
   //BORDER
   static const double borderPadding = 8.0;
+
+  //STACK POSITION
+  static const double stackPositionSmall = 5.0;
 }

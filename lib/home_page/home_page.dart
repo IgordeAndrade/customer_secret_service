@@ -1,4 +1,5 @@
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
+import 'package:customer_secret_service/global/routes/routes.dart';
 import 'package:customer_secret_service/home_page/widgets/custom_drawer_item.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +39,9 @@ class HomePage extends StatelessWidget {
               CustomDrawerItem(
                 icon: Icons.manage_accounts,
                 title: Strings.editPersonalInformations,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.editPersonalInformation);
+                },
               ),
               CustomDrawerItem(
                 icon: Icons.description,
