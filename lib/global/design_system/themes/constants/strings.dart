@@ -15,4 +15,19 @@ class Strings {
   static const String evaluationHistory = 'Histórico de avaliação';
   static const String paymentHistory = 'Histórico de pagamentos';
   static const String preferredRegions = 'Regiões preferidas';
+  static const String save = 'Salvar';
+  static const String adress = 'Endereço';
+  static const String postalCode = 'CEP';
+  static const String street = 'Rua';
+  static const String state = 'Estado';
+  static const String city = 'Cidade';
+  static const String phone = 'Celular';
+  static const String mail = 'E-mail';
+  static const String contact = 'Contato';
+  static const String neighborhood = 'Bairro';
+  static const String number = 'Número';
+  static const String complement = 'Complemento';
+  static const String basicInformations = 'informações Básicas';
+  static const String birthDay = 'Data de Nascimento';
+  static const String gender = 'Gênero';
 }

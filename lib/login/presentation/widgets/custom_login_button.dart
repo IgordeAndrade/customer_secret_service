@@ -23,8 +23,8 @@ class CustomLoginButton extends StatelessWidget {
                     LoginController.loginController.userAuthentication(context);
                   },
                   child: const Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: Sizes.loginButtonHeight),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: Sizes.buttonHeight),
                     child: Text(Strings.login),
                   ),
                 );

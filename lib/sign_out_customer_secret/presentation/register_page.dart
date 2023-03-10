@@ -86,8 +86,8 @@ class RegisterPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                       vertical: MediaQuery.of(context).size.height * 0.05),
                   child: SizedBox(
-                    height: Sizes.loginButtonHeight,
-                    width: Sizes.loginButtonWidth,
+                    height: Sizes.buttonHeight,
+                    width: Sizes.buttonWidth,
                     child: ElevatedButton(
                       style: ButtonStyle(
                         shadowColor: MaterialStateProperty.all(

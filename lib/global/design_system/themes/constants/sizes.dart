@@ -7,10 +7,12 @@ class Sizes {
   static const double iconSizeLarge = 100;
 
   //BUTTONS
-  static const double loginButtonHeight = 50;
+  static const double buttonHeight = 50;
   static const double buttonWidthMultiplier = 0.5;
-  static const double loginButtonWidth = 150;
+  static const double xbuttonWidthMultiplier = 0.95;
+  static const double buttonWidth = 150;
   static const double editProfilePictureButton = 20;
+  static const double smallElevation = 5;
 
   //INPUT TEXT
   static const double inputTextWidthMultiplier = 0.9;

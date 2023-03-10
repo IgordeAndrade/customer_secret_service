@@ -1,3 +1,5 @@
+import 'package:customer_secret_service/global/design_system/themes/constants/sizes.dart';
+import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:customer_secret_service/global/design_system/widgets/box_spacer.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +17,9 @@ class InformationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 10,
+      elevation: Sizes.smallElevation,
       child: SizedBox(
-        width: double.infinity,
+        width: MediaQuery.of(context).size.width * Sizes.xbuttonWidthMultiplier,
         child: Column(
           children: [
             const BoxSpacer.large(),
@@ -29,11 +31,11 @@ class InformationCard extends StatelessWidget {
             widget,
             const BoxSpacer.large(),
             SizedBox(
-              height: 50,
-              width: 200,
+              height: Sizes.buttonHeight,
+              width: Sizes.buttonWidth,
               child: ElevatedButton(
                 onPressed: onSave,
-                child: const Text('Salvar'),
+                child: const Text(Strings.save),
               ),
             ),
             const BoxSpacer.large(),

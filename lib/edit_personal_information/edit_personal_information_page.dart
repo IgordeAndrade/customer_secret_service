@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/edit_personal_information/widgets/custom_dropdown.dart';
 import 'package:customer_secret_service/edit_personal_information/widgets/infromations_card.dart';
 import 'package:customer_secret_service/global/design_system/themes/constants/sizes.dart';
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
@@ -45,34 +46,88 @@ class EditPersonalInformationPage extends StatelessWidget {
             ),
             const BoxSpacer.xLarge(),
             InformationCard(
-              onSave: () {},
-              title: 'Endereço',
               widget: Form(
                 child: Column(
                   children: const [
-                    CustomTextFormField(label: 'CEP'),
+                    CustomTextFormField(label: Strings.name),
                     BoxSpacer.small(),
-                    CustomTextFormField(label: 'Rua'),
+                    CustomTextFormField(
+                      label: Strings.birthDay,
+                      textInputType: TextInputType.datetime,
+                    ),
                     BoxSpacer.small(),
-                    CustomTextFormField(label: 'Cidade'),
+                    CustomDropDown(
+                      items: [
+                        DropdownMenuItem<String>(
+                          value: 'Maculino',
+                          child: Text('Masculino'),
+                        ),
+                        DropdownMenuItem<String>(
+                          value: 'Feminino',
+                          child: Text('Feminino'),
+                        ),
+                        DropdownMenuItem<String>(
+                          value: 'Menine',
+                          child: Text('Menine'),
+                        )
+                      ],
+                    ),
                     BoxSpacer.small(),
-                    CustomTextFormField(label: 'Estado'),
+                  ],
+                ),
+              ),
+              title: Strings.basicInformations,
+              onSave: () {},
+            ),
+            const BoxSpacer.small(),
+            InformationCard(
+              onSave: () {},
+              title: Strings.adress,
+              widget: Form(
+                child: Column(
+                  children: const [
+                    CustomTextFormField(
+                      label: Strings.postalCode,
+                      textInputType: TextInputType.numberWithOptions(),
+                    ),
+                    BoxSpacer.small(),
+                    CustomTextFormField(label: Strings.state),
+                    BoxSpacer.small(),
+                    CustomTextFormField(label: Strings.city),
+                    BoxSpacer.small(),
+                    CustomTextFormField(label: Strings.neighborhood),
+                    BoxSpacer.small(),
+                    CustomTextFormField(label: Strings.street),
+                    BoxSpacer.small(),
+                    CustomTextFormField(
+                      label: Strings.number,
+                      textInputType: TextInputType.number,
+                    ),
+                    BoxSpacer.small(),
+                    CustomTextFormField(label: Strings.complement),
+                    BoxSpacer.small(),
                   ],
                 ),
               ),
             ),
             const BoxSpacer.small(),
             InformationCard(
-                widget: Form(
-                    child: Column(
+              widget: Form(
+                child: Column(
                   children: const [
-                    CustomTextFormField(label: 'Celular'),
+                    CustomTextFormField(
+                      label: Strings.phone,
+                      textInputType: TextInputType.numberWithOptions(),
+                    ),
                     BoxSpacer.small(),
-                    CustomTextFormField(label: 'E-mail'),
+                    CustomTextFormField(label: Strings.mail),
                   ],
-                )),
-                title: 'Contato',
-                onSave: () {})
+                ),
+              ),
+              title: Strings.contact,
+              onSave: () {},
+            ),
+            const BoxSpacer.small()
           ],
         ),
       ),
