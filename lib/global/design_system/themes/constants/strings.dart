@@ -27,7 +27,17 @@ class Strings {
   static const String neighborhood = 'Bairro';
   static const String number = 'Número';
   static const String complement = 'Complemento';
-  static const String basicInformations = 'informações Básicas';
+  static const String basicInformations = 'Informações Básicas';
   static const String birthDay = 'Data de Nascimento';
   static const String gender = 'Gênero';
+  static const String bankInformations = 'Informações Bancárias';
+  static const String bank = 'Banco';
+  static const String male = 'Masculino';
+  static const String female = 'Feminino';
+  static const String yes = 'sim';
+  static const String no = 'não';
+  static const String hasSpecialNeeds = 'Possui necessidades Especiais?';
+  static const String single = 'Solteiro';
+  static const String married = 'Casado';
+  static const String maritalStatus = 'Estado civil';
 }

@@ -57,14 +57,15 @@ class EditPersonalInformationPage extends StatelessWidget {
                     ),
                     BoxSpacer.small(),
                     CustomDropDown(
+                      label: Strings.gender,
                       items: [
                         DropdownMenuItem<String>(
-                          value: 'Maculino',
-                          child: Text('Masculino'),
+                          value: Strings.male,
+                          child: Text(Strings.male),
                         ),
                         DropdownMenuItem<String>(
-                          value: 'Feminino',
-                          child: Text('Feminino'),
+                          value: Strings.female,
+                          child: Text(Strings.female),
                         ),
                         DropdownMenuItem<String>(
                           value: 'Menine',
@@ -127,7 +128,60 @@ class EditPersonalInformationPage extends StatelessWidget {
               title: Strings.contact,
               onSave: () {},
             ),
-            const BoxSpacer.small()
+            const BoxSpacer.small(),
+            InformationCard(
+                title: Strings.bankInformations,
+                widget: Form(
+                  child: Column(
+                    children: const [
+                      CustomDropDown(
+                        label: Strings.bank,
+                        items: [
+                          DropdownMenuItem<String>(
+                            value: 'InBank',
+                            child: Text('InBank'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                onSave: () {}),
+            const BoxSpacer.small(),
+            InformationCard(
+                title: 'Outras informações',
+                widget: Form(
+                  child: Column(
+                    children: const [
+                      CustomDropDown(
+                        items: [
+                          DropdownMenuItem(
+                            value: Strings.yes,
+                            child: Text(Strings.yes),
+                          ),
+                          DropdownMenuItem(
+                            value: Strings.no,
+                            child: Text(Strings.no),
+                          )
+                        ],
+                        label: Strings.hasSpecialNeeds,
+                      ),
+                      BoxSpacer.small(),
+                      CustomDropDown(items: [
+                        DropdownMenuItem(
+                          value: Strings.single,
+                          child: Text(Strings.single),
+                        ),
+                        DropdownMenuItem(
+                          value: Strings.married,
+                          child: Text(Strings.married),
+                        )
+                      ], label: Strings.maritalStatus),
+                    ],
+                  ),
+                ),
+                onSave: () {}),
+            const BoxSpacer.small(),
           ],
         ),
       ),

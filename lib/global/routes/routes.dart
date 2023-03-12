@@ -1,5 +1,3 @@
-import 'package:customer_secret_service/edit_personal_information/edit_personal_information_page.dart';
-
 class Routes {
   static const splashPage = '/splash_page';
   static const loginPage = '/login_page';

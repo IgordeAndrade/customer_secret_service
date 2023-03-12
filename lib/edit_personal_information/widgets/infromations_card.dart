@@ -4,11 +4,12 @@ import 'package:customer_secret_service/global/design_system/widgets/box_spacer.
 import 'package:flutter/material.dart';
 
 class InformationCard extends StatelessWidget {
-  const InformationCard(
-      {super.key,
-      required this.widget,
-      required this.title,
-      required this.onSave});
+  const InformationCard({
+    super.key,
+    required this.widget,
+    required this.title,
+    required this.onSave,
+  });
 
   final Widget widget;
   final String title;

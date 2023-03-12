@@ -1,11 +1,12 @@
 import 'package:customer_secret_service/global/design_system/themes/constants/sizes.dart';
-import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
+
 import 'package:flutter/material.dart';
 
 class CustomDropDown extends StatefulWidget {
-  const CustomDropDown({super.key, required this.items});
+  const CustomDropDown({super.key, required this.items, required this.label});
 
   final List<DropdownMenuItem<String>> items;
+  final String label;
 
   @override
   State<CustomDropDown> createState() => _CustomDropDownState();
@@ -22,12 +23,17 @@ class _CustomDropDownState extends State<CustomDropDown> {
       ),
       child: DropdownButtonFormField<String>(
           decoration: InputDecoration(
-            label: const Text(Strings.gender),
+            label: Text(widget.label),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Theme.of(context).primaryColor),
+              borderRadius: BorderRadius.circular(Sizes.borderRadius),
+            ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: Theme.of(context).hintColor),
+              borderRadius: BorderRadius.circular(Sizes.borderRadius),
             ),
           ),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(Sizes.borderRadius),
           value: option.isEmpty ? null : option,
           items: widget.items,
           onChanged: (choose) {
