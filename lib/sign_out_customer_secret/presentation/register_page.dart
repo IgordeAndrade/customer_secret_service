@@ -2,7 +2,6 @@ import 'package:customer_secret_service/global/design_system/themes/constants/st
 import 'package:customer_secret_service/global/design_system/widgets/box_spacer.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
-import '../../global/design_system/styles/custom_styles.dart';
 import '../../global/design_system/themes/constants/sizes.dart';
 import '../../global/design_system/widgets/customer_snack_bar.dart';
 import '../../global/design_system/widgets/default_button.dart';

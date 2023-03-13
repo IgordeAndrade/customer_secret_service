@@ -7,6 +7,7 @@ import '../global/design_system/themes/constants/sizes.dart';
 import '../global/design_system/widgets/box_spacer.dart';
 import '../schedule/presentation/widgets/my_schedules_banner.dart';
 import '../training/presentation/widgets/training_banner.dart';
+import '../wallet/presentation/widgets/my_wallet_banner.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -71,9 +72,10 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: const [
+            MyWalletBanner(),
             BoxSpacer.small(),
             MySchedulesBanner(),
-            BoxSpacer(),
+            BoxSpacer.small(),
             TrainingBanner(),
           ],
         ),
