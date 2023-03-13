@@ -8,7 +8,7 @@ class Strings {
   static const String createCount = 'Cadastre-se';
   static const String name = 'Nome';
   static const String confirmPassword = 'Confirme a senha';
-  static const String register = 'REGISTRAR';
+  static const String register = 'Registrar-se';
   static const String personalInformations = 'Informações Pessoais';
   static const String editPersonalInformations = 'Editar informações pessoais';
   static const String contracts = 'Contratos';

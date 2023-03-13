@@ -3,6 +3,7 @@ import 'package:customer_secret_service/global/design_system/themes/constants/st
 import 'package:flutter/material.dart';
 
 import '../../../global/design_system/themes/constants/sizes.dart';
+import '../../../global/design_system/widgets/default_button.dart';
 import '../../application/login_controller.dart';
 
 class CustomLoginButton extends StatelessWidget {
@@ -15,16 +16,11 @@ class CustomLoginButton extends StatelessWidget {
         builder: (__, isLoading, ___) {
           return isLoading
               ? const CircularProgressIndicator()
-              : ElevatedButton(
-                  style: CustomStyles.buttonStyle,
+              : DefaultButton(
                   onPressed: () {
                     LoginController.loginController.userAuthentication(context);
                   },
-                  child: const Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: Sizes.buttonHeight),
-                    child: Text(Strings.login),
-                  ),
+                  contentButton: Strings.login,
                 );
         });
   }

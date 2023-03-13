@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../global/design_system/styles/custom_styles.dart';
 import '../../global/design_system/themes/constants/sizes.dart';
 import '../../global/design_system/widgets/customer_snack_bar.dart';
+import '../../global/design_system/widgets/default_button.dart';
 import '../../global/routes/routes.dart';
 import '../application/register_controller.dart';
 
@@ -89,8 +90,7 @@ class RegisterPage extends StatelessWidget {
                   child: SizedBox(
                     height: Sizes.buttonHeight,
                     width: Sizes.buttonWidth,
-                    child: ElevatedButton(
-                      style: CustomStyles.buttonStyle,
+                    child: DefaultButton(
                       onPressed: () {
                         //TODO: Authenticate user
                         RegisterController().userAuthentication(context);
@@ -108,7 +108,7 @@ class RegisterPage extends StatelessWidget {
                         );
                         // : showStormSnackBar(context, message: 'Falha ao se cadastrar');
                       },
-                      child: const Text(Strings.register),
+                      contentButton: Strings.register,
                     ),
                   ),
                 ),

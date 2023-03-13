@@ -1,6 +1,7 @@
 import 'package:customer_secret_service/global/design_system/themes/constants/sizes.dart';
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:customer_secret_service/global/design_system/widgets/box_spacer.dart';
+import 'package:customer_secret_service/global/design_system/widgets/default_button.dart';
 import 'package:flutter/material.dart';
 
 class InformationCard extends StatelessWidget {
@@ -31,13 +32,9 @@ class InformationCard extends StatelessWidget {
             const BoxSpacer.large(),
             widget,
             const BoxSpacer.large(),
-            SizedBox(
-              height: Sizes.buttonHeight,
-              width: Sizes.buttonWidth,
-              child: ElevatedButton(
-                onPressed: onSave,
-                child: const Text(Strings.save),
-              ),
+            DefaultButton(
+              onPressed: onSave,
+              contentButton: Strings.save,
             ),
             const BoxSpacer.large(),
           ],
