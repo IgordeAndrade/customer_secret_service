@@ -34,10 +34,22 @@ class Strings {
   static const String bank = 'Banco';
   static const String male = 'Masculino';
   static const String female = 'Feminino';
-  static const String yes = 'sim';
-  static const String no = 'não';
-  static const String hasSpecialNeeds = 'Possui necessidades Especiais?';
+  static const String yes = 'Sim';
+  static const String no = 'Não';
+  static const String hasSpecialNeeds = 'Possui necessidades especiais?';
   static const String single = 'Solteiro';
   static const String married = 'Casado';
   static const String maritalStatus = 'Estado civil';
+  static const String hasChildren = 'Possui filhos?';
+  static const String childrenAgeGroup = 'Faixa etária dos filhos';
+  static const String child = 'Criança';
+  static const String young = 'Jovem';
+  static const String adult = 'Adulto';
+  static const String allAgeGroup = 'Mais de uma faixa etária';
+  static const String hasDriverLicense = 'Possui carteira de motorista?';
+  static const String notHave = 'Não possuo';
+  static const String otherInformations = 'Outras informações';
+  static const String agency = 'Agência';
+  static const String accountNumber = 'Número da conta';
+  static const String pix = 'Pix';
 }

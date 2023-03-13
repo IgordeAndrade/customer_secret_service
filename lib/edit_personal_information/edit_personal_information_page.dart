@@ -50,12 +50,12 @@ class EditPersonalInformationPage extends StatelessWidget {
                 child: Column(
                   children: const [
                     CustomTextFormField(label: Strings.name),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                     CustomTextFormField(
                       label: Strings.birthDay,
                       textInputType: TextInputType.datetime,
                     ),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                     CustomDropDown(
                       label: Strings.gender,
                       items: [
@@ -73,14 +73,14 @@ class EditPersonalInformationPage extends StatelessWidget {
                         )
                       ],
                     ),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                   ],
                 ),
               ),
               title: Strings.basicInformations,
               onSave: () {},
             ),
-            const BoxSpacer.small(),
+            const BoxSpacer(),
             InformationCard(
               onSave: () {},
               title: Strings.adress,
@@ -91,27 +91,27 @@ class EditPersonalInformationPage extends StatelessWidget {
                       label: Strings.postalCode,
                       textInputType: TextInputType.numberWithOptions(),
                     ),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                     CustomTextFormField(label: Strings.state),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                     CustomTextFormField(label: Strings.city),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                     CustomTextFormField(label: Strings.neighborhood),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                     CustomTextFormField(label: Strings.street),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                     CustomTextFormField(
                       label: Strings.number,
                       textInputType: TextInputType.number,
                     ),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                     CustomTextFormField(label: Strings.complement),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                   ],
                 ),
               ),
             ),
-            const BoxSpacer.small(),
+            const BoxSpacer(),
             InformationCard(
               widget: Form(
                 child: Column(
@@ -120,7 +120,7 @@ class EditPersonalInformationPage extends StatelessWidget {
                       label: Strings.phone,
                       textInputType: TextInputType.numberWithOptions(),
                     ),
-                    BoxSpacer.small(),
+                    BoxSpacer(),
                     CustomTextFormField(label: Strings.mail),
                   ],
                 ),
@@ -143,13 +143,25 @@ class EditPersonalInformationPage extends StatelessWidget {
                           ),
                         ],
                       ),
+                      BoxSpacer(),
+                      CustomTextFormField(
+                        label: Strings.agency,
+                      ),
+                      BoxSpacer(),
+                      CustomTextFormField(
+                        label: Strings.accountNumber,
+                      ),
+                      BoxSpacer(),
+                      CustomTextFormField(
+                        label: Strings.pix,
+                      ),
                     ],
                   ),
                 ),
                 onSave: () {}),
             const BoxSpacer.small(),
             InformationCard(
-                title: 'Outras informações',
+                title: Strings.otherInformations,
                 widget: Form(
                   child: Column(
                     children: const [
@@ -166,7 +178,7 @@ class EditPersonalInformationPage extends StatelessWidget {
                         ],
                         label: Strings.hasSpecialNeeds,
                       ),
-                      BoxSpacer.small(),
+                      BoxSpacer(),
                       CustomDropDown(items: [
                         DropdownMenuItem(
                           value: Strings.single,
@@ -177,6 +189,51 @@ class EditPersonalInformationPage extends StatelessWidget {
                           child: Text(Strings.married),
                         )
                       ], label: Strings.maritalStatus),
+                      BoxSpacer(),
+                      CustomDropDown(items: [
+                        DropdownMenuItem(
+                          value: Strings.yes,
+                          child: Text(Strings.yes),
+                        ),
+                        DropdownMenuItem(
+                          value: Strings.no,
+                          child: Text(Strings.no),
+                        )
+                      ], label: Strings.hasChildren),
+                      BoxSpacer(),
+                      CustomDropDown(items: [
+                        DropdownMenuItem(
+                          value: Strings.notHave,
+                          child: Text(Strings.notHave),
+                        ),
+                        DropdownMenuItem(
+                          value: Strings.child,
+                          child: Text(Strings.child),
+                        ),
+                        DropdownMenuItem(
+                          value: Strings.young,
+                          child: Text(Strings.young),
+                        ),
+                        DropdownMenuItem(
+                          value: Strings.adult,
+                          child: Text(Strings.adult),
+                        ),
+                        DropdownMenuItem(
+                          value: Strings.allAgeGroup,
+                          child: Text(Strings.allAgeGroup),
+                        ),
+                      ], label: Strings.childrenAgeGroup),
+                      BoxSpacer(),
+                      CustomDropDown(items: [
+                        DropdownMenuItem(
+                          value: Strings.yes,
+                          child: Text(Strings.yes),
+                        ),
+                        DropdownMenuItem(
+                          value: Strings.no,
+                          child: Text(Strings.no),
+                        )
+                      ], label: Strings.hasDriverLicense),
                     ],
                   ),
                 ),
