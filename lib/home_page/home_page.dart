@@ -70,14 +70,16 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          children: const [
-            MyWalletBanner(),
-            BoxSpacer.small(),
-            MySchedulesBanner(),
-            BoxSpacer.small(),
-            TrainingBanner(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: const [
+              MyWalletBanner(),
+              BoxSpacer.small(),
+              MySchedulesBanner(),
+              BoxSpacer.small(),
+              TrainingBanner(),
+            ],
+          ),
         ),
       ),
     );
