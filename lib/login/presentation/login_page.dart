@@ -4,8 +4,15 @@ import 'package:customer_secret_service/login/presentation/widgets/custom_login_
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool isValidCharacters = true;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +34,14 @@ class LoginPage extends StatelessWidget {
                   child: Column(
                     children: [
                       CustomTextFormField(
+                        onChanged: (value) {
+                          setState(() {
+                            isValidCharacters = RegExp(
+                                    r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-])")
+                                .hasMatch(value);
+                          });
+                        },
+                        isValidCharacters: isValidCharacters,
                         hintText: Strings.email,
                         prefixIcon: Icon(
                           Icons.mail,
@@ -37,6 +52,12 @@ class LoginPage extends StatelessWidget {
                         height: MediaQuery.of(context).size.height * 0.02,
                       ),
                       CustomTextFormField(
+                        onChanged: (value) {
+                          setState(() {
+                            isValidCharacters = passwordValidate(value);
+                          });
+                        },
+                        isValidCharacters: isValidCharacters,
                         hintText: Strings.password,
                         obscureText: true,
                         prefixIcon: Icon(
@@ -80,5 +101,29 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  bool passwordValidate(String password) {
+    if (password.length < 6) {
+      return false;
+    }
+    RegExp regexNumber = RegExp(r'\d');
+    if (!regexNumber.hasMatch(password)) {
+      return false;
+    }
+    RegExp regexMaiuscula = RegExp(r'[A-Z]');
+    if (!regexMaiuscula.hasMatch(password)) {
+      return false;
+    }
+    RegExp regexMinuscula = RegExp(r'[a-z]');
+    if (!regexMinuscula.hasMatch(password)) {
+      return false;
+    }
+    RegExp regexSimbolo =
+        RegExp(r'[!@#\$%\^&\*\(\)\-\+=_\{\}\[\]:;<>\?\.\\\/\|]');
+    if (!regexSimbolo.hasMatch(password)) {
+      return false;
+    }
+    return true;
   }
 }

@@ -1,17 +1,20 @@
-import 'package:customer_secret_service/global/design_system/themes/constants/sizes.dart';
 import 'package:flutter/material.dart';
+
+import 'package:customer_secret_service/global/design_system/themes/constants/sizes.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
     this.hintText,
+    this.label,
     this.obscureText = false,
     this.prefixIcon,
     this.textInputType,
     this.textFieldWidth,
     this.leftPadding,
     this.rightPadding,
-    this.label,
+    this.onChanged,
+    this.isValidCharacters = true,
   });
 
   final String? hintText;
@@ -22,6 +25,8 @@ class CustomTextFormField extends StatelessWidget {
   final double? textFieldWidth;
   final double? leftPadding;
   final double? rightPadding;
+  final void Function(String)? onChanged;
+  final bool isValidCharacters;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +39,7 @@ class CustomTextFormField extends StatelessWidget {
       child: SizedBox(
         width: textFieldWidth ?? MediaQuery.of(context).size.width,
         child: TextFormField(
+          onChanged: onChanged,
           keyboardType: textInputType ?? TextInputType.text,
           style: TextStyle(color: theme.onPrimary),
           decoration: InputDecoration(
@@ -54,11 +60,17 @@ class CustomTextFormField extends StatelessWidget {
             label: hintText == null ? Text('$label') : null,
             filled: true,
             enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(Sizes.borderRadius),
-                borderSide: BorderSide(color: theme.outline)),
+              borderRadius: BorderRadius.circular(Sizes.borderRadius),
+              borderSide: BorderSide(
+                color: theme.outline,
+              ),
+            ),
             focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(Sizes.borderRadius),
-                borderSide: BorderSide(color: theme.primary)),
+              borderRadius: BorderRadius.circular(Sizes.borderRadius),
+              borderSide: BorderSide(
+                color: isValidCharacters ? theme.primary : theme.error,
+              ),
+            ),
           ),
           obscureText: obscureText ?? false,
         ),
