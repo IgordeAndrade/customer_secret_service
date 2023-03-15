@@ -13,7 +13,7 @@ class Strings {
   static const String editPersonalInformations = 'Editar informações pessoais';
   static const String contracts = 'Contratos';
   static const String evaluationHistory = 'Histórico de avaliação';
-  static const String paymentHistory = 'Histórico de pagamentos';
+  static const String myWallet = 'Minha carteira';
   static const String preferredRegions = 'Regiões preferidas';
   static const String save = 'Salvar';
   static const String adress = 'Endereço';
