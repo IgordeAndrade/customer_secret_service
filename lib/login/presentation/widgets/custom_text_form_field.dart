@@ -3,19 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:customer_secret_service/global/design_system/themes/constants/sizes.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
-    super.key,
-    this.hintText,
-    this.label,
-    this.obscureText = false,
-    this.prefixIcon,
-    this.textInputType,
-    this.textFieldWidth,
-    this.leftPadding,
-    this.rightPadding,
-    this.onChanged,
-    this.isValidCharacters = true,
-  });
+  const CustomTextFormField(
+      {super.key,
+      this.hintText,
+      this.label,
+      this.obscureText = false,
+      this.prefixIcon,
+      this.textInputType,
+      this.textFieldWidth,
+      this.leftPadding,
+      this.rightPadding,
+      this.onChanged,
+      this.isValidCharacters = true,
+      this.errorText,
+      this.validator});
 
   final String? hintText;
   final String? label;
@@ -27,6 +28,8 @@ class CustomTextFormField extends StatelessWidget {
   final double? rightPadding;
   final void Function(String)? onChanged;
   final bool isValidCharacters;
+  final String? errorText;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +42,17 @@ class CustomTextFormField extends StatelessWidget {
       child: SizedBox(
         width: textFieldWidth ?? MediaQuery.of(context).size.width,
         child: TextFormField(
+          validator: validator,
           onChanged: onChanged,
           keyboardType: textInputType ?? TextInputType.text,
           style: TextStyle(color: theme.onPrimary),
           decoration: InputDecoration(
+            focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: theme.error)),
+            errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: theme.error)),
             prefixIcon: prefixIcon != null
                 ? Padding(
                     padding: const EdgeInsets.only(
@@ -56,6 +66,7 @@ class CustomTextFormField extends StatelessWidget {
                     width: Sizes.borderRadius,
                   )
                 : null,
+            errorText: errorText,
             hintText: hintText,
             label: hintText == null ? Text('$label') : null,
             filled: true,

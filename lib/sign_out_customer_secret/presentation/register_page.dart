@@ -7,10 +7,19 @@ import '../../global/design_system/themes/constants/sizes.dart';
 import '../../global/design_system/widgets/customer_snack_bar.dart';
 import '../../global/design_system/widgets/default_button.dart';
 import '../../global/routes/routes.dart';
-import '../application/register_controller.dart';
+import '../application/register_auth.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  late String password;
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +42,20 @@ class RegisterPage extends StatelessWidget {
                 Text(Strings.createCount, style: theme.textTheme.displayMedium),
                 const BoxSpacer.xLarge(),
                 Form(
+                  key: _formKey,
                   child: Column(
                     children: [
-                      const CustomTextFormField(
+                      CustomTextFormField(
+                        validator: (value) => value!.isEmpty
+                            ? Strings.thisFieldIsMandatory
+                            : null,
                         hintText: Strings.completeName,
                       ),
                       const BoxSpacer(),
-                      const CustomDropDown(
-                        items: [
+                      CustomDropDown(
+                        validator: (value) =>
+                            value == null ? Strings.thisFieldIsMandatory : null,
+                        items: const [
                           DropdownMenuItem(
                             value: Strings.male,
                             child: Text(Strings.male),
@@ -53,7 +68,17 @@ class RegisterPage extends StatelessWidget {
                         label: Strings.gender,
                       ),
                       const BoxSpacer(),
-                      const CustomTextFormField(
+                      CustomTextFormField(
+                        validator: (value) {
+                          final emailRegex =
+                              RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+                          if (value!.isEmpty) {
+                            return Strings.thisFieldIsMandatory;
+                          } else if (!emailRegex.hasMatch(value)) {
+                            return Strings.invalidMail;
+                          }
+                          return null;
+                        },
                         hintText: Strings.email,
                       ),
                       const BoxSpacer(),
@@ -61,6 +86,9 @@ class RegisterPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CustomTextFormField(
+                            validator: (value) => value!.isEmpty
+                                ? Strings.thisFieldIsMandatory
+                                : null,
                             textInputType: TextInputType.datetime,
                             hintText: Strings.birthDay,
                             textFieldWidth:
@@ -69,27 +97,52 @@ class RegisterPage extends StatelessWidget {
                             rightPadding: Sizes.borderRadius / 2,
                           ),
                           CustomTextFormField(
+                            validator: (value) => value!.isEmpty
+                                ? Strings.thisFieldIsMandatory
+                                : null,
                             textInputType: TextInputType.number,
                             textFieldWidth:
                                 MediaQuery.of(context).size.width * 0.34,
-                            hintText: 'CEP',
+                            hintText: Strings.postalCode,
                             leftPadding: Sizes.borderRadius / 2,
                             rightPadding: Sizes.borderRadius * 2,
                           ),
                         ],
                       ),
                       const BoxSpacer(),
-                      const CustomTextFormField(
-                        hintText: 'Numero de celular',
-                        textInputType: TextInputType.numberWithOptions(),
+                      CustomTextFormField(
+                        validator: (value) => value!.isEmpty
+                            ? Strings.thisFieldIsMandatory
+                            : null,
+                        hintText: Strings.phone,
+                        textInputType: const TextInputType.numberWithOptions(),
                       ),
                       const BoxSpacer(),
-                      const CustomTextFormField(
+                      CustomTextFormField(
+                        validator: (value) {
+                          final passwordRegex = RegExp(
+                              r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$');
+                          if (value!.isEmpty) {
+                            return Strings.thisFieldIsMandatory;
+                          } else if (!passwordRegex.hasMatch(value)) {
+                            return Strings.passwordCondition;
+                          }
+                          password = value;
+                          return null;
+                        },
                         hintText: Strings.password,
                         obscureText: true,
                       ),
                       const BoxSpacer(),
-                      const CustomTextFormField(
+                      CustomTextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return Strings.thisFieldIsMandatory;
+                          } else if (value != password) {
+                            return Strings.confirmPassword;
+                          }
+                          return null;
+                        },
                         hintText: Strings.confirmPassword,
                         obscureText: true,
                       ),
@@ -104,21 +157,27 @@ class RegisterPage extends StatelessWidget {
                     width: Sizes.buttonWidth,
                     child: DefaultButton(
                       onPressed: () {
-                        //TODO: Authenticate user
-                        RegisterController().userAuthentication(context);
+                        bool registerDataIsValid =
+                            _formKey.currentState!.validate();
+                        if (registerDataIsValid) {
+                          //TODO: Authenticate user
+                          RegisterController().userAuthentication(context);
 
-                        //TODO: Move this logic to controller
+                          //TODO: Move this logic to controller
 
-                        // status == RxStatus.success ?
-                        showStormSnackBar(
-                          context,
-                          message: 'Cadastro realizado com sucesso!',
-                          action: SnackBarAction(
-                            label: 'Confirme seu e-mail',
-                            onPressed: () {},
-                          ),
-                        );
-                        // : showStormSnackBar(context, message: 'Falha ao se cadastrar');
+                          // status == RxStatus.success ?
+                          showStormSnackBar(
+                            context,
+                            message: 'Cadastro realizado com sucesso!',
+                            action: SnackBarAction(
+                              label: 'Confirme seu e-mail',
+                              onPressed: () {},
+                            ),
+                          );
+                        } else {
+                          showStormSnackBar(context,
+                              message: 'Falha ao se cadastrar');
+                        }
                       },
                       contentButton: Strings.register,
                     ),

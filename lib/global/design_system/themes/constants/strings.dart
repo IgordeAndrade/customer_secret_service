@@ -42,4 +42,9 @@ class Strings {
   static const String agency = 'Agência';
   static const String accountNumber = 'Número da conta';
   static const String pix = 'Pix';
+  static const String thisFieldIsMandatory = 'Este campo é obrigatório';
+  static const String invalidMail = 'Email inválido';
+  static const String passwordCondition =
+      'Mínimo de oito caracteres, uma letra e um número.';
+  static const String confirmPasswordCondition = 'As senhas devem ser iguais';
 }

@@ -3,10 +3,12 @@ import 'package:customer_secret_service/global/design_system/themes/constants/si
 import 'package:flutter/material.dart';
 
 class CustomDropDown extends StatefulWidget {
-  const CustomDropDown({super.key, required this.items, required this.label});
+  const CustomDropDown(
+      {super.key, required this.items, required this.label, this.validator});
 
   final List<DropdownMenuItem<String>> items;
   final String label;
+  final String? Function(String?)? validator;
 
   @override
   State<CustomDropDown> createState() => _CustomDropDownState();
@@ -15,6 +17,8 @@ class CustomDropDown extends StatefulWidget {
 class _CustomDropDownState extends State<CustomDropDown> {
   @override
   Widget build(BuildContext context) {
+    ColorScheme theme = Theme.of(context).colorScheme;
+
     String option = '';
     return Padding(
       padding: const EdgeInsets.only(
@@ -22,7 +26,14 @@ class _CustomDropDownState extends State<CustomDropDown> {
         right: Sizes.borderRadius * 2,
       ),
       child: DropdownButtonFormField<String>(
+          validator: widget.validator,
           decoration: InputDecoration(
+            focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: theme.error)),
+            errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: theme.error)),
             label: Text(widget.label),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Theme.of(context).primaryColor),
