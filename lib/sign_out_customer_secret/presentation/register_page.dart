@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/edit_personal_information/widgets/custom_dropdown.dart';
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:customer_secret_service/global/design_system/widgets/box_spacer.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
@@ -13,7 +14,7 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -28,21 +29,28 @@ class RegisterPage extends StatelessWidget {
           child: SafeArea(
             child: Column(
               children: [
-                Text(
-                  Strings.createCount,
-                  style: TextStyle(
-                      color: theme.onPrimary,
-                      fontSize: 48,
-                      fontWeight: FontWeight.w400),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
-                ),
+                const BoxSpacer.large(),
+                Text(Strings.createCount, style: theme.textTheme.displayMedium),
+                const BoxSpacer.xLarge(),
                 Form(
                   child: Column(
                     children: [
                       const CustomTextFormField(
-                        hintText: Strings.name,
+                        hintText: Strings.completeName,
+                      ),
+                      const BoxSpacer(),
+                      const CustomDropDown(
+                        items: [
+                          DropdownMenuItem(
+                            value: Strings.male,
+                            child: Text(Strings.male),
+                          ),
+                          DropdownMenuItem(
+                            value: Strings.female,
+                            child: Text(Strings.female),
+                          ),
+                        ],
+                        label: Strings.gender,
                       ),
                       const BoxSpacer(),
                       const CustomTextFormField(
@@ -54,7 +62,7 @@ class RegisterPage extends StatelessWidget {
                         children: [
                           CustomTextFormField(
                             textInputType: TextInputType.datetime,
-                            hintText: 'Data de nascimento',
+                            hintText: Strings.birthDay,
                             textFieldWidth:
                                 MediaQuery.of(context).size.width * 0.50,
                             leftPadding: Sizes.borderRadius * 2,
@@ -69,6 +77,11 @@ class RegisterPage extends StatelessWidget {
                             rightPadding: Sizes.borderRadius * 2,
                           ),
                         ],
+                      ),
+                      const BoxSpacer(),
+                      const CustomTextFormField(
+                        hintText: 'Numero de celular',
+                        textInputType: TextInputType.numberWithOptions(),
                       ),
                       const BoxSpacer(),
                       const CustomTextFormField(
