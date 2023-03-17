@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 
 import 'package:customer_secret_service/global/design_system/themes/constants/sizes.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField(
-      {super.key,
-      this.hintText,
-      this.label,
-      this.obscureText = false,
-      this.prefixIcon,
-      this.textInputType,
-      this.textFieldWidth,
-      this.leftPadding,
-      this.rightPadding,
-      this.onChanged,
-      this.isValidCharacters = true,
-      this.errorText,
-      this.validator});
+  const CustomTextFormField({
+    super.key,
+    this.hintText,
+    this.label,
+    this.obscureText = false,
+    this.prefixIcon,
+    this.textInputType,
+    this.textFieldWidth,
+    this.leftPadding,
+    this.rightPadding,
+    this.onChanged,
+    this.isValidCharacters = true,
+    this.errorText,
+    this.validator,
+    this.inputFormatters,
+    this.onSaved,
+  });
 
   final String? hintText;
   final String? label;
@@ -30,6 +34,8 @@ class CustomTextFormField extends StatelessWidget {
   final bool isValidCharacters;
   final String? errorText;
   final String? Function(String?)? validator;
+  final List<TextInputFormatter>? inputFormatters;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +48,10 @@ class CustomTextFormField extends StatelessWidget {
       child: SizedBox(
         width: textFieldWidth ?? MediaQuery.of(context).size.width,
         child: TextFormField(
+          onSaved: onSaved,
           validator: validator,
           onChanged: onChanged,
+          inputFormatters: inputFormatters,
           keyboardType: textInputType ?? TextInputType.text,
           style: TextStyle(color: theme.onPrimary),
           decoration: InputDecoration(

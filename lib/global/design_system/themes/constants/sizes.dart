@@ -24,4 +24,9 @@ class Sizes {
 
   //STACK POSITION
   static const double stackPositionSmall = 5.0;
+
+  //FIELD SIZE MULTIPLIER
+  static const double fieldMultiplierxSmall = 0.34;
+  static const double fieldMultiplierSmall = 0.5;
+  static const double fieldMultiplier = 2.0;
 }

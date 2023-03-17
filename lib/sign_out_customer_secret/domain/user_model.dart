@@ -17,17 +17,17 @@ class User {
 
   final String mail;
   final String completeName;
-  final DateTime dateOfBirth;
+  final String dateOfBirth;
   final String cep;
   final String password;
   final String gender;
   final UniqueID id;
   final Wallet userWallet;
-  final phoneNumber;
+  final String phoneNumber;
 
   @override
   String toString() {
-    return 'User( name:$completeName, mail:$mail, cep:$cep, password:$password, dateOfBirth:$dateOfBirth, gender:$gender, id:$id, UserWallet:$userWallet)';
+    return 'User(name:$completeName, mail:$mail, cep:$cep, password:$password, dateOfBirth:$dateOfBirth, gender:$gender, id:$id, UserWallet:$userWallet)';
   }
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -60,7 +60,7 @@ class User {
     String? mail,
     String? completeName,
     String? phoneNumber,
-    DateTime? dateOfBirth,
+    String? dateOfBirth,
     String? cep,
     String? password,
     String? gender,

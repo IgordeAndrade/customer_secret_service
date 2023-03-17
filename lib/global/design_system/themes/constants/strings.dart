@@ -47,4 +47,10 @@ class Strings {
   static const String passwordCondition =
       'Mínimo de oito caracteres, uma letra e um número.';
   static const String confirmPasswordCondition = 'As senhas devem ser iguais';
+  static const String passwordsMustBeeEquals = 'As senhas devem ser iguais';
+  static const String failToRegister = 'Falha ao se cadastrar';
+  static const String sucessToRegister = 'Cadastro realizado com sucesso!';
+  static const String confirmMail = 'confirme seu e-mail';
+  static const String invalidPostalCode = 'CEP inválido';
+  static const String invalidPhoneNumber = 'Número inválido';
 }

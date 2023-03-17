@@ -1,14 +1,17 @@
 import 'package:customer_secret_service/edit_personal_information/widgets/custom_dropdown.dart';
+import 'package:customer_secret_service/global/design_system/themes/constants/input_validator.dart';
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:customer_secret_service/global/design_system/widgets/box_spacer.dart';
+import 'package:customer_secret_service/global/domain/value_objects.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
+import 'package:customer_secret_service/sign_out_customer_secret/application/formatters.dart';
+import 'package:customer_secret_service/sign_out_customer_secret/domain/user_model.dart';
 import 'package:flutter/material.dart';
 import '../../global/design_system/themes/constants/sizes.dart';
 import '../../global/design_system/widgets/customer_snack_bar.dart';
 import '../../global/design_system/widgets/default_button.dart';
 import '../../global/routes/routes.dart';
 import '../application/register_auth.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -19,7 +22,15 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  late String? equalPassword;
   late String password;
+  late String completeName;
+  late String gender;
+  late String mail;
+  late String postalCode;
+  late String phoneNumber;
+  late String dateOfBirth;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +57,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: Column(
                     children: [
                       CustomTextFormField(
+                        onSaved: (value) => completeName = value!,
                         validator: (value) => value!.isEmpty
                             ? Strings.thisFieldIsMandatory
                             : null,
@@ -53,6 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       const BoxSpacer(),
                       CustomDropDown(
+                        onSaved: (value) => gender = value!,
                         validator: (value) =>
                             value == null ? Strings.thisFieldIsMandatory : null,
                         items: const [
@@ -69,12 +82,11 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       const BoxSpacer(),
                       CustomTextFormField(
+                        onSaved: (value) => mail = value!,
                         validator: (value) {
-                          final emailRegex =
-                              RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
                           if (value!.isEmpty) {
                             return Strings.thisFieldIsMandatory;
-                          } else if (!emailRegex.hasMatch(value)) {
+                          } else if (!InputValidator.email.hasMatch(value)) {
                             return Strings.invalidMail;
                           }
                           return null;
@@ -86,48 +98,69 @@ class _RegisterPageState extends State<RegisterPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CustomTextFormField(
+                            onSaved: (value) => dateOfBirth = value!,
+                            inputFormatters: [birthFormatter],
                             validator: (value) => value!.isEmpty
                                 ? Strings.thisFieldIsMandatory
                                 : null,
                             textInputType: TextInputType.datetime,
                             hintText: Strings.birthDay,
-                            textFieldWidth:
-                                MediaQuery.of(context).size.width * 0.50,
-                            leftPadding: Sizes.borderRadius * 2,
-                            rightPadding: Sizes.borderRadius / 2,
+                            textFieldWidth: MediaQuery.of(context).size.width *
+                                Sizes.fieldMultiplierSmall,
+                            leftPadding:
+                                Sizes.borderRadius * Sizes.fieldMultiplier,
+                            rightPadding:
+                                Sizes.borderRadius / Sizes.fieldMultiplier,
                           ),
                           CustomTextFormField(
-                            validator: (value) => value!.isEmpty
-                                ? Strings.thisFieldIsMandatory
-                                : null,
+                            onSaved: (value) => postalCode = value!,
+                            inputFormatters: [postalCodeFormatter],
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return Strings.thisFieldIsMandatory;
+                              } else if (!InputValidator.cep.hasMatch(value)) {
+                                return Strings.invalidPostalCode;
+                              }
+                              return null;
+                            },
                             textInputType: TextInputType.number,
-                            textFieldWidth:
-                                MediaQuery.of(context).size.width * 0.34,
+                            textFieldWidth: MediaQuery.of(context).size.width *
+                                Sizes.fieldMultiplierxSmall,
                             hintText: Strings.postalCode,
-                            leftPadding: Sizes.borderRadius / 2,
-                            rightPadding: Sizes.borderRadius * 2,
+                            leftPadding:
+                                Sizes.borderRadius / Sizes.fieldMultiplier,
+                            rightPadding:
+                                Sizes.borderRadius * Sizes.fieldMultiplier,
                           ),
                         ],
                       ),
                       const BoxSpacer(),
                       CustomTextFormField(
-                        validator: (value) => value!.isEmpty
-                            ? Strings.thisFieldIsMandatory
-                            : null,
+                        onSaved: (value) => phoneNumber = value!,
+                        inputFormatters: [phoneFormatter],
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return Strings.thisFieldIsMandatory;
+                          } else if (!InputValidator.phoneNumber
+                              .hasMatch(value)) {
+                            return Strings.invalidPhoneNumber;
+                          }
+                          return null;
+                        },
                         hintText: Strings.phone,
                         textInputType: const TextInputType.numberWithOptions(),
                       ),
                       const BoxSpacer(),
                       CustomTextFormField(
                         validator: (value) {
-                          final passwordRegex = RegExp(
-                              r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$');
+                          equalPassword = value;
+
                           if (value!.isEmpty) {
                             return Strings.thisFieldIsMandatory;
-                          } else if (!passwordRegex.hasMatch(value)) {
+                          } else if (!InputValidator.password.hasMatch(value)) {
                             return Strings.passwordCondition;
                           }
-                          password = value;
+
                           return null;
                         },
                         hintText: Strings.password,
@@ -135,11 +168,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       const BoxSpacer(),
                       CustomTextFormField(
+                        onSaved: (value) => password = value!,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return Strings.thisFieldIsMandatory;
-                          } else if (value != password) {
-                            return Strings.confirmPassword;
+                          } else if (value != equalPassword) {
+                            return Strings.passwordsMustBeeEquals;
                           }
                           return null;
                         },
@@ -149,40 +183,48 @@ class _RegisterPageState extends State<RegisterPage> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: MediaQuery.of(context).size.height * 0.05),
-                  child: SizedBox(
-                    height: Sizes.buttonHeight,
-                    width: Sizes.buttonWidth,
-                    child: DefaultButton(
-                      onPressed: () {
-                        bool registerDataIsValid =
-                            _formKey.currentState!.validate();
-                        if (registerDataIsValid) {
-                          //TODO: Authenticate user
-                          RegisterController().userAuthentication(context);
+                const BoxSpacer.large(),
+                SizedBox(
+                  height: Sizes.buttonHeight,
+                  width: Sizes.buttonWidth,
+                  child: DefaultButton(
+                    onPressed: () {
+                      bool registerDataIsValid =
+                          _formKey.currentState!.validate();
+                      if (registerDataIsValid) {
+                        //TODO: Authenticate user
+                        RegisterController().userAuthentication(context);
+                        /*   User(
+                            cep: postalCode,
+                            dateOfBirth: dateOfBirth,
+                            completeName: completeName,
+                            mail: mail,
+                            password: password,
+                            gender: gender,
+                            id: UniqueID.generate(),
+                            userWallet: Wallet.,
+                            phoneNumber: phoneNumber); */
 
-                          //TODO: Move this logic to controller
+                        //TODO: Move this logic to controller
 
-                          // status == RxStatus.success ?
-                          showStormSnackBar(
-                            context,
-                            message: 'Cadastro realizado com sucesso!',
-                            action: SnackBarAction(
-                              label: 'Confirme seu e-mail',
-                              onPressed: () {},
-                            ),
-                          );
-                        } else {
-                          showStormSnackBar(context,
-                              message: 'Falha ao se cadastrar');
-                        }
-                      },
-                      contentButton: Strings.register,
-                    ),
+                        // status == RxStatus.success ?
+                        showStormSnackBar(
+                          context,
+                          message: Strings.sucessToRegister,
+                          action: SnackBarAction(
+                            label: Strings.confirmMail,
+                            onPressed: () {},
+                          ),
+                        );
+                      } else {
+                        showStormSnackBar(context,
+                            message: Strings.failToRegister);
+                      }
+                    },
+                    contentButton: Strings.register,
                   ),
                 ),
+                const BoxSpacer(),
               ],
             ),
           ),
