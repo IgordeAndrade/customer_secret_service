@@ -8,7 +8,6 @@ import '../../global/design_system/widgets/customer_snack_bar.dart';
 import '../../global/design_system/widgets/default_button.dart';
 import '../../global/routes/routes.dart';
 import '../application/register_auth.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});

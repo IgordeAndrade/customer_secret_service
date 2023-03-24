@@ -23,7 +23,7 @@ class User {
   final String gender;
   final UniqueID id;
   final Wallet userWallet;
-  final phoneNumber;
+  final String phoneNumber;
 
   @override
   String toString() {
