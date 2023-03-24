@@ -1,5 +1,5 @@
 import 'package:customer_secret_service/edit_personal_information/widgets/custom_dropdown.dart';
-import 'package:customer_secret_service/global/design_system/themes/constants/input_validator.dart';
+import 'package:customer_secret_service/global/design_system/utils/input_validator.dart';
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:customer_secret_service/global/design_system/widgets/box_spacer.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
