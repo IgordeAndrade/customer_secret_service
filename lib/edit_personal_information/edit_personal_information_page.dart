@@ -179,61 +179,6 @@ class EditPersonalInformationPage extends StatelessWidget {
                         label: Strings.hasSpecialNeeds,
                       ),
                       BoxSpacer(),
-                      CustomDropDown(items: [
-                        DropdownMenuItem(
-                          value: Strings.single,
-                          child: Text(Strings.single),
-                        ),
-                        DropdownMenuItem(
-                          value: Strings.married,
-                          child: Text(Strings.married),
-                        )
-                      ], label: Strings.maritalStatus),
-                      BoxSpacer(),
-                      CustomDropDown(items: [
-                        DropdownMenuItem(
-                          value: Strings.yes,
-                          child: Text(Strings.yes),
-                        ),
-                        DropdownMenuItem(
-                          value: Strings.no,
-                          child: Text(Strings.no),
-                        )
-                      ], label: Strings.hasChildren),
-                      BoxSpacer(),
-                      CustomDropDown(items: [
-                        DropdownMenuItem(
-                          value: Strings.notHave,
-                          child: Text(Strings.notHave),
-                        ),
-                        DropdownMenuItem(
-                          value: Strings.child,
-                          child: Text(Strings.child),
-                        ),
-                        DropdownMenuItem(
-                          value: Strings.young,
-                          child: Text(Strings.young),
-                        ),
-                        DropdownMenuItem(
-                          value: Strings.adult,
-                          child: Text(Strings.adult),
-                        ),
-                        DropdownMenuItem(
-                          value: Strings.allAgeGroup,
-                          child: Text(Strings.allAgeGroup),
-                        ),
-                      ], label: Strings.childrenAgeGroup),
-                      BoxSpacer(),
-                      CustomDropDown(items: [
-                        DropdownMenuItem(
-                          value: Strings.yes,
-                          child: Text(Strings.yes),
-                        ),
-                        DropdownMenuItem(
-                          value: Strings.no,
-                          child: Text(Strings.no),
-                        )
-                      ], label: Strings.hasDriverLicense),
                     ],
                   ),
                 ),
