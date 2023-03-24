@@ -7,13 +7,14 @@ class Strings {
   static const String noCount = 'Ainda não tem uma conta?';
   static const String createCount = 'Cadastre-se';
   static const String name = 'Nome';
+  static const String completeName = 'Nome completo';
   static const String confirmPassword = 'Confirme a senha';
   static const String register = 'Registrar-se';
   static const String personalInformations = 'Informações Pessoais';
   static const String editPersonalInformations = 'Editar informações pessoais';
   static const String contracts = 'Contratos';
   static const String evaluationHistory = 'Histórico de avaliação';
-  static const String paymentHistory = 'Histórico de pagamentos';
+  static const String myWallet = 'Minha carteira';
   static const String preferredRegions = 'Regiões preferidas';
   static const String save = 'Salvar';
   static const String adress = 'Endereço';
@@ -28,7 +29,7 @@ class Strings {
   static const String number = 'Número';
   static const String complement = 'Complemento';
   static const String basicInformations = 'Informações Básicas';
-  static const String birthDay = 'Data de Nascimento';
+  static const String birthDay = 'Data de nascimento';
   static const String gender = 'Gênero';
   static const String bankInformations = 'Informações Bancárias';
   static const String bank = 'Banco';
@@ -37,19 +38,13 @@ class Strings {
   static const String yes = 'Sim';
   static const String no = 'Não';
   static const String hasSpecialNeeds = 'Possui necessidades especiais?';
-  static const String single = 'Solteiro';
-  static const String married = 'Casado';
-  static const String maritalStatus = 'Estado civil';
-  static const String hasChildren = 'Possui filhos?';
-  static const String childrenAgeGroup = 'Faixa etária dos filhos';
-  static const String child = 'Criança';
-  static const String young = 'Jovem';
-  static const String adult = 'Adulto';
-  static const String allAgeGroup = 'Mais de uma faixa etária';
-  static const String hasDriverLicense = 'Possui carteira de motorista?';
-  static const String notHave = 'Não possuo';
   static const String otherInformations = 'Outras informações';
   static const String agency = 'Agência';
   static const String accountNumber = 'Número da conta';
   static const String pix = 'Pix';
+  static const String thisFieldIsMandatory = 'Este campo é obrigatório';
+  static const String invalidMail = 'Email inválido';
+  static const String passwordCondition =
+      'Mínimo de oito caracteres, uma letra e um número.';
+  static const String confirmPasswordCondition = 'As senhas devem ser iguais';
 }

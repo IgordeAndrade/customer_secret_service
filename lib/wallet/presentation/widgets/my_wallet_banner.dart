@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../global/design_system/styles/custom_styles.dart';
 import '../../../global/design_system/widgets/box_spacer.dart';
+import '../../infrastructure/wallet_information.dart';
 
 class MyWalletBanner extends StatefulWidget {
   const MyWalletBanner({super.key});
@@ -111,7 +112,7 @@ class _MyWalletBannerState extends State<MyWalletBanner> {
               onPressed: () {},
               icon: const Icon(Icons.monetization_on_outlined),
               label: Text(
-                'Ver histórico de pagamentos',
+                'Ver Detalhes',
                 style: theme.textTheme.bodyMedium,
               ),
             ),
@@ -121,17 +122,3 @@ class _MyWalletBannerState extends State<MyWalletBanner> {
     );
   }
 }
-
-Map<String, dynamic> walletInformation = {
-  'Saldo Total': 50.00,
-  'Disponível para saque': 15.00,
-  'Último pagamento': {
-    'Valor': 10.00,
-    'Data': '10/03/2023',
-  },
-  'Histórico de pagamentos': {
-    0: {'Data': '09/03/2023', 'Valor': 5.00, 'serviço': 'Rapidez na entrega'},
-    1: {'Data': '10/03/2023', 'Valor': 10.00, 'serviço': 'Qualidade na defesa'},
-    2: {'Data': '11/03/2023', 'Valor': 35.00, 'serviço': 'Rapidez na entrega'}
-  },
-};

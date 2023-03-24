@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
               ),
               CustomDrawerItem(
                 icon: Icons.payments,
-                title: Strings.paymentHistory,
+                title: Strings.myWallet,
                 onPressed: () {},
               ),
               CustomDrawerItem(
