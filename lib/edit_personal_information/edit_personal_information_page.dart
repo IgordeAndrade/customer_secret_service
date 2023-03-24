@@ -67,10 +67,6 @@ class EditPersonalInformationPage extends StatelessWidget {
                           value: Strings.female,
                           child: Text(Strings.female),
                         ),
-                        DropdownMenuItem<String>(
-                          value: 'Menine',
-                          child: Text('Menine'),
-                        )
                       ],
                     ),
                     BoxSpacer(),
@@ -137,6 +133,7 @@ class EditPersonalInformationPage extends StatelessWidget {
                       CustomDropDown(
                         label: Strings.bank,
                         items: [
+                          //TODO: add dropdown items
                           DropdownMenuItem<String>(
                             value: 'InBank',
                             child: Text('InBank'),

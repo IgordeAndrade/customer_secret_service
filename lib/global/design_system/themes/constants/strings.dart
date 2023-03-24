@@ -15,6 +15,7 @@ class Strings {
   static const String contracts = 'Contratos';
   static const String evaluationHistory = 'Histórico de avaliação';
   static const String myWallet = 'Minha carteira';
+  static const String mySchedules = 'Meus agendamentos';
   static const String preferredRegions = 'Regiões preferidas';
   static const String save = 'Salvar';
   static const String adress = 'Endereço';
@@ -47,4 +48,19 @@ class Strings {
   static const String passwordCondition =
       'Mínimo de oito caracteres, uma letra e um número.';
   static const String confirmPasswordCondition = 'As senhas devem ser iguais';
+  static const String registerSuccess = 'Cadastro realizado com sucesso!';
+  static const String registerError = 'Falha ao se cadastrar';
+  static const String confirmYourEmail = 'Confirme seu e-mail';
+
+//TRAINING
+  static const String disponibilesTraining = 'Treinamentos disponíveis';
+  static const String viewAllTraining = 'Ver todos os treinamentos';
+
+//WALLET
+  static const String myBallance = 'Meu saldo';
+  static const String availableForWithdrawal = 'Disponível para Saque';
+  static const String lastPayment = 'Último pagamento';
+  static const String viewDetails = 'Ver Detalhes';
+
+
 }

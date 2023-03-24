@@ -1,6 +1,7 @@
 import 'package:customer_secret_service/global/design_system/styles/custom_styles.dart';
 import 'package:flutter/material.dart';
 
+import '../../../global/design_system/themes/constants/strings.dart';
 import '../../../global/design_system/widgets/box_spacer.dart';
 
 class MySchedulesBanner extends StatelessWidget {
@@ -24,7 +25,7 @@ class MySchedulesBanner extends StatelessWidget {
                   const Icon(Icons.calendar_month),
                   const BoxSpacer.small(),
                   Text(
-                    'Meus agendamentos',
+                    Strings.mySchedules,
                     style: theme.textTheme.headline5,
                   )
                 ],

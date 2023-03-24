@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/global/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../design_system/themes/constants/sizes.dart';
@@ -14,7 +15,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 5)).then(
-        (value) => Navigator.of(context).pushReplacementNamed('/login_page'));
+        (value) => Navigator.of(context).pushReplacementNamed(Routes.loginPage));
   }
 
   @override

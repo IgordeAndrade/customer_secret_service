@@ -8,7 +8,6 @@ import '../../global/design_system/widgets/customer_snack_bar.dart';
 import '../../global/design_system/widgets/default_button.dart';
 import '../../global/routes/routes.dart';
 import '../application/register_auth.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -168,15 +167,17 @@ class _RegisterPageState extends State<RegisterPage> {
                           // status == RxStatus.success ?
                           showStormSnackBar(
                             context,
-                            message: 'Cadastro realizado com sucesso!',
+                            message: Strings.registerSuccess,
                             action: SnackBarAction(
-                              label: 'Confirme seu e-mail',
+                              label: Strings.confirmYourEmail,
                               onPressed: () {},
                             ),
                           );
                         } else {
-                          showStormSnackBar(context,
-                              message: 'Falha ao se cadastrar');
+                          showStormSnackBar(
+                            context,
+                            message: Strings.registerError,
+                          );
                         }
                       },
                       contentButton: Strings.register,

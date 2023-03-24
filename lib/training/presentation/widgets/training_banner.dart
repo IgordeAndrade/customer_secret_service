@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../global/design_system/styles/custom_styles.dart';
+import '../../../global/design_system/themes/constants/strings.dart';
 import '../../../global/design_system/widgets/box_spacer.dart';
 
 class TrainingBanner extends StatelessWidget {
@@ -21,7 +22,7 @@ class TrainingBanner extends StatelessWidget {
                 const Icon(Icons.auto_stories_sharp),
                 const BoxSpacer.small(),
                 Text(
-                  'Treinamentos disponíveis',
+                  Strings.disponibilesTraining,
                   style: theme.textTheme.headline5,
                 )
               ],
@@ -70,7 +71,7 @@ class TrainingBanner extends StatelessWidget {
                     onPressed: () {},
                     icon: const Icon(Icons.auto_stories_sharp),
                     label: Text(
-                      'Ver todos os treinamentos',
+                      Strings.viewAllTraining,
                       style: theme.textTheme.bodyMedium,
                     ),
                   ),

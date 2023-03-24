@@ -68,7 +68,7 @@ class CustomTextFormField extends StatelessWidget {
                 : null,
             errorText: errorText,
             hintText: hintText,
-            label: hintText == null ? Text('$label') : null,
+            label: hintText == null && label != null ? Text(label!) : null,
             filled: true,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(Sizes.borderRadius),

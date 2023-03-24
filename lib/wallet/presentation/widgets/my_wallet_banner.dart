@@ -1,3 +1,4 @@
+import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:flutter/material.dart';
 
 import '../../../global/design_system/styles/custom_styles.dart';
@@ -34,7 +35,7 @@ class _MyWalletBannerState extends State<MyWalletBanner> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Meu saldo',
+                  Strings.myBallance,
                   style: theme.textTheme.headline5,
                 ),
                 IconButton(
@@ -65,7 +66,7 @@ class _MyWalletBannerState extends State<MyWalletBanner> {
                       const BoxSpacer.small(),
 
                       Text(
-                        'Disponível para Saque',
+                        Strings.availableForWithdrawal,
                         style: theme.textTheme.bodyLarge,
                       ),
                       const BoxSpacer.xSmall(),
@@ -84,7 +85,7 @@ class _MyWalletBannerState extends State<MyWalletBanner> {
                   children: [
                     const BoxSpacer.small(),
                     Text(
-                      'Último pagamento',
+                      Strings.lastPayment,
                       style: theme.textTheme.bodyLarge,
                     ),
                     const BoxSpacer.small(),
@@ -112,7 +113,7 @@ class _MyWalletBannerState extends State<MyWalletBanner> {
               onPressed: () {},
               icon: const Icon(Icons.monetization_on_outlined),
               label: Text(
-                'Ver Detalhes',
+                Strings.viewDetails,
                 style: theme.textTheme.bodyMedium,
               ),
             ),
