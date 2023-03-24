@@ -30,7 +30,8 @@ class Wallet {
       lastPayment: json['lastPayment'],
       paymentHistory: json['paymentHistory'] != null
           ? [
-              for (var task in json['paymentHistory'])
+              // ignore: unused_local_variable
+              for (final task in json['paymentHistory'])
                 Task.fromJson(json['paymentHistory'])
             ]
           : null,
