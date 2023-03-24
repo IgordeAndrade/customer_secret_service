@@ -2,10 +2,8 @@ import 'package:customer_secret_service/edit_personal_information/widgets/custom
 import 'package:customer_secret_service/global/design_system/themes/constants/input_validator.dart';
 import 'package:customer_secret_service/global/design_system/themes/constants/strings.dart';
 import 'package:customer_secret_service/global/design_system/widgets/box_spacer.dart';
-import 'package:customer_secret_service/global/domain/value_objects.dart';
 import 'package:customer_secret_service/login/presentation/widgets/custom_text_form_field.dart';
 import 'package:customer_secret_service/sign_out_customer_secret/application/formatters.dart';
-import 'package:customer_secret_service/sign_out_customer_secret/domain/user_model.dart';
 import 'package:flutter/material.dart';
 import '../../global/design_system/themes/constants/sizes.dart';
 import '../../global/design_system/widgets/customer_snack_bar.dart';
